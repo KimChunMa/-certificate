@@ -1,0 +1,53 @@
+Dao	
+-------------------------------------------------------------------------------------------------
+	public static Connection getConnection() throws Exception{
+		Class.forName("oracle.jdbc.OracleDriver");
+		Connection con = DriverManager.getConnection(
+				"jdbc:oracle:thin:@//localhost:1521/xe","system","1234");
+		return con;
+	}
+	
+	private Connection con;
+	private PreparedStatement ps;
+	private ResultSet rs;
+	
+	public Dao() {
+		try{
+			con = getConnection();
+		}catch(Exception e) {System.out.println("에러!"+e);}
+	}
+-------------------------------------------------------------------------------------------------
+db 작성
+-------------------------------------------------------------------------------------------------
+cmd -> sqlplus -> system -> 1234
+
+commit 하기
+
+후보자 등수
+select 
+	그룹한 필드, 
+	count(*) 갯수
+from 
+	테이블 A inner join 테이블 B 
+on 
+	조인 조건
+where
+	조건
+group by 
+	그룹할꺼
+order by
+	순서 DESC;
+
+CREATE TABLE 테이블 이름 (
+   필드이름 유형(길이) not null,
+   primary key(필드이름)
+);
+
+insert into 테이블 values ('값');
+
+
+substring(자르기 시작할 인덱스, 자를길이)
+
+equals(같은 값)
+
+charAt(추출할값)
